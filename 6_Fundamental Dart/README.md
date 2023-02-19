@@ -7,22 +7,6 @@ Komentar : digunakan untuk memberi catatan pada source code yang kita tulis atau
 Variable : digunakan untuk menyimpan nilai/data.<br>
 Konstanta : digunakan untuk menyimpan data dengan nilai tetap atau tidak dapat diubah.
 
-Metode Perulangan :
-1. **for** 
-for adalah sintaks perulangan untuk dart. Sintaks ini akan menjalankan perulangan sesuai dengan parameter yang kita tentukan.
-**Contoh**
-`void main(List<String> arguments) {
-  for(var i =0; i < 5; i ++){
-    print(i);
-  }
-}`
-**Output**
-0
-1
-2
-3
-4
-
 
 Tipe data : 
 * int = bilangan bulat
