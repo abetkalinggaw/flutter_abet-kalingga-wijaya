@@ -1,10 +1,11 @@
+//Abet Kalingga Wijaya
 import 'dart:io';
 
-findFactorial(double angka) {
+faktorial(double angka) {
   if (angka == 1) {
     return 1;
   }
-  return angka * findFactorial(angka - 1);
+  return angka * faktorial(angka - 1);
 }
 
 void main() {
@@ -12,5 +13,5 @@ void main() {
   stdout.write("Masukan angka : ");
   double angka = double.parse(stdin.readLineSync()!);
 
-  print("Hasil Faktorial dari $angka = ${findFactorial(angka)}");
+  print("Hasil Faktorial dari $angka = ${faktorial(angka)}");
 }
