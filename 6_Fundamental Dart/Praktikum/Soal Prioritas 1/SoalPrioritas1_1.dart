@@ -13,7 +13,7 @@ main() {
   print("========== Persegi ==========");
   int sisi = 5;
   int hasilLuasP = luasPersegi(sisi);
-  int kelilingP = hasilLuasP * 2;
+  int kelilingP = sisi * 4;
 
   print("Luas Persegi : $hasilLuasP");
   print("Keliling Persegi : $kelilingP");
