@@ -1,9 +1,5 @@
 // Abet Kalingga Wijaya
 
-String nama(String nama) {
-  return nama;
-}
-
 main() {
   String namaDepan = "Abet Kalingga";
   String namaBelakang = "Wijaya";

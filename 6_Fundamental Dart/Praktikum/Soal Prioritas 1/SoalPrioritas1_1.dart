@@ -1,5 +1,4 @@
 //Abet Kalingga Wijaya
-import 'dart:io';
 
 int luasPersegi(int sisi) {
   return sisi * sisi;

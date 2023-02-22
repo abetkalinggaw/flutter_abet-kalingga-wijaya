@@ -1,6 +1,4 @@
 //Abet Kalingga Wijaya
-import 'dart:io';
-
 double luasLingkaran(double phi, int r) {
   return phi * r * r;
 }
