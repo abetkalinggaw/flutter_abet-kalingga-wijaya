@@ -18,3 +18,5 @@ Cara untuk menghentikan Perulangan :
 * Continue => menghentikan satu kali proses perulangan
 
 ### Function
+Function merupakan metode yang sangat membantu dalam proses pembuatan sistem, karena dengan menggunakan fungsi kita dapat menyingkat penggunaan kode yang harus digunakan secara berulang dan digantikan dengan fungsi yang telah dibuat sebelumnya.</br>
+
