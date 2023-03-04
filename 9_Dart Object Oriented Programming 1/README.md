@@ -18,8 +18,7 @@ Dart adalah bahasa pemrograman yang dapat melakukan pemrograman berorientasi obj
 
 <code>class Person{
     string nama;
-    int umur;
-    }
+    int umur;}
 </code>
 
 Reference :
