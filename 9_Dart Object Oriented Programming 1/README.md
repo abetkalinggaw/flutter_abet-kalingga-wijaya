@@ -13,13 +13,14 @@ Dart adalah bahasa pemrograman yang dapat melakukan pemrograman berorientasi obj
 `class Person{}`
 
 ### Object 
-`object` adalah hasil dari pembuatan class. Contoh : 
+`object` adalah hasil dari pembuatan class dengan menambahkan `property` dan `method`. Contoh : 
 > Pembuatan Object dari class Person.
 
-`var person = Person()`
-> Variable
-
- `Person person = Person()`
+<code>class Person{
+    string nama;
+    int umur;
+    }
+</code>
 
 Reference :
 <https://www.anbidev.com/dart-oop-class-object/>
