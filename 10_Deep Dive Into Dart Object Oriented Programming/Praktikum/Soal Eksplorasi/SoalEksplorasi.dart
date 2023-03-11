@@ -73,14 +73,14 @@ void main() {
 
   // Output
   print('---- Luas dan keliling lingkaran ----');
-  print('Luas : ${circle.getArea()}');
-  print('Keliling : ${circle.getPerimeter()}');
+  print('Luas : ${circle.getArea()} cm');
+  print('Keliling : ${circle.getPerimeter()} cm');
 
   print('\n---- Luas dan keliling persegi ----');
-  print('Luas : ${square.getArea()}');
-  print('Keliling : ${square.getPerimeter()}');
+  print('Luas : ${square.getArea()} cm');
+  print('Keliling : ${square.getPerimeter()} cm');
 
   print('\n---- Luas dan keliling persegi panjang ----');
-  print('Luas : ${rectangle.getArea()}');
-  print('Keliling : ${rectangle.getPerimeter()}');
+  print('Luas : ${rectangle.getArea()} cm');
+  print('Keliling : ${rectangle.getPerimeter()} cm');
 }
