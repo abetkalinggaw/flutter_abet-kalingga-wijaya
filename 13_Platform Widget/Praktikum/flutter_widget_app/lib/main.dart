@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'cupertino/cupertino_app.dart';
 import 'material/material_contact_app.dart';
 import 'material/material_course_app.dart';
-import 'material/material_gridview_app.dart';
 
 void main() {
   runApp(const MyApp());
