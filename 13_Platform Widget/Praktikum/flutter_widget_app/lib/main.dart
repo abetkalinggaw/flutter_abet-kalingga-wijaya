@@ -15,19 +15,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return const CupertinoApp(
-    //   debugShowCheckedModeBanner: false,
-    //   title: 'Cupertino App',
-    //   theme: CupertinoThemeData(brightness: Brightness.dark),
-    //   home: CupertinoHomePage(),
-    // );
-
-    return MaterialApp(
+    return const CupertinoApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-      title: 'Contact App',
-      home: const ContactApp(),
+      title: 'Cupertino App',
+      theme: CupertinoThemeData(brightness: Brightness.dark),
+      home: CupertinoHomePage(),
     );
+
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData.dark(),
+    //   title: 'Contact App',
+    //   home: const ContactApp(),
+    // );
 
     // return MaterialApp(
     //   debugShowCheckedModeBanner: false,
