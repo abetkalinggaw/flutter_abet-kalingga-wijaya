@@ -1,0 +1,44 @@
+name: flutter_application_assets
+description: A new Flutter project.
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_colorpicker: ^1.0.3
+  file_picker: ^5.2.6
+  intl: ^0.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/flutter.png
+    - assets/img0.jpg
+    - assets/img1.jpg
+    - assets/img2.jpg
+    - assets/img3.jpg
+    - assets/img4.jpg
+    - assets/img5.jpg
+    - assets/img6.jpg
+    - assets/img7.jpg
+    - assets/img8.jpg
+    - assets/img9.jpg
+    - assets/img10.jpg
+    - assets/img11.jpg
+    - assets/img12.jpg 
+
