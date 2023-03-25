@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
+        '/': (context) => const HomePage(),
         '/contact': (context) => const ContactApp(),
         '/picker': (context) => const PickerPage(),
         '/gallery': (context) => const GalleryPage(),
