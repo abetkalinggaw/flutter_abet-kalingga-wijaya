@@ -11,8 +11,11 @@ class ContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('Contact App'),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
         actions: [
           IconButton(
             onPressed: () {
@@ -39,23 +42,43 @@ class ContactScreen extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const AddContact(),
+      floatingActionButton: SizedBox(
+        height: 60,
+        child: FloatingActionButton.extended(
+          backgroundColor: Colors.blue[800],
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const AddContact(),
+              ),
+            );
+          },
+          icon: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          label: Text(
+            "Add Contact",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w900,
             ),
-          );
-        },
+          ),
+        ),
       ),
-      body: Consumer<DbManager>(
-        builder: (context, manager, child) {
-          return ContactListScreen(
-            manager: manager,
-          );
-        },
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[900],
+        ),
+        child: Consumer<DbManager>(
+          builder: (context, manager, child) {
+            return ContactListScreen(
+              manager: manager,
+            );
+          },
+        ),
       ),
     );
   }

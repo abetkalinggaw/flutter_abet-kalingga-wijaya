@@ -40,26 +40,34 @@ class _ContactItemScreenState extends State<AddContact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('Create Contact', style: TextStyle()),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        child: ListView(
-          children: [
-            const Text(
-              'Add New Contact',
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            bodyForm(),
-            const SizedBox(
-              height: 16,
-            ),
-            buttonSubmit(),
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[900],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          child: ListView(
+            children: [
+              const Text(
+                'Add New Contact',
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              bodyForm(),
+              const SizedBox(
+                height: 20,
+              ),
+              buttonSubmit(),
+            ],
+          ),
         ),
       ),
     );
@@ -95,30 +103,33 @@ class _ContactItemScreenState extends State<AddContact> {
   }
 
   Widget buttonSubmit() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-      child: ElevatedButton(
-        child: const Text(
-          'Submit',
-          style: TextStyle(fontWeight: FontWeight.w500),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue[800],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
         ),
-        onPressed: () {
-          if (!_isUpdate) {
-            final contact = ContactModel(
-                nama: _nameController.text, nomor: _nomorController.text);
-            Provider.of<DbManager>(context, listen: false).addContact(contact);
-          } else {
-            final contact = ContactModel(
-              id: widget.contactModel!.id,
-              nama: _nameController.text,
-              nomor: _nomorController.text,
-            );
-            Provider.of<DbManager>(context, listen: false)
-                .updateContact(contact);
-          }
-          Navigator.pop(context);
-        },
+        padding: const EdgeInsets.symmetric(vertical: 14),
       ),
+      child: const Text(
+        'Submit',
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+      ),
+      onPressed: () {
+        if (!_isUpdate) {
+          final contact = ContactModel(
+              nama: _nameController.text, nomor: _nomorController.text);
+          Provider.of<DbManager>(context, listen: false).addContact(contact);
+        } else {
+          final contact = ContactModel(
+            id: widget.contactModel!.id,
+            nama: _nameController.text,
+            nomor: _nomorController.text,
+          );
+          Provider.of<DbManager>(context, listen: false).updateContact(contact);
+        }
+        Navigator.pop(context);
+      },
     );
   }
 }

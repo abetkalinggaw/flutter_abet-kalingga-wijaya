@@ -72,6 +72,7 @@ class _ProfileSheetState extends State<ProfileSheet> {
                           (route) => false);
                     },
                     style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue[800],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
@@ -80,7 +81,8 @@ class _ProfileSheetState extends State<ProfileSheet> {
                     ),
                     child: const Text(
                       'Log Out',
-                      style: TextStyle(fontSize: 17),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
                     ),
                   ),
                 ],

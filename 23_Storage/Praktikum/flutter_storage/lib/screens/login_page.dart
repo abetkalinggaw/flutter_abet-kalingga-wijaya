@@ -10,8 +10,8 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        decoration: const BoxDecoration(
-          color: Colors.black,
+        decoration: BoxDecoration(
+          color: Colors.grey[900],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
               height: 150,
             ),
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const <Widget>[
@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 30,
             ),
             const FormLogin(),
           ],
@@ -64,8 +64,7 @@ class FormLogin extends StatefulWidget {
 
 class _FormLoginState extends State<FormLogin> {
   final _formKey = GlobalKey<FormState>();
-  final _name = TextEditingController();
-  final _email = TextEditingController();
+  final _username = TextEditingController();
   final _password = TextEditingController();
 
   late SharedPreferences logindata;
@@ -93,123 +92,113 @@ class _FormLoginState extends State<FormLogin> {
 
   @override
   void dispose() {
-    _name.dispose();
+    _username.dispose();
     _password.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.grey[900],
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(60),
-            topRight: Radius.circular(60),
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(30),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 20,
-                    horizontal: 20,
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      TextFormField(
-                        controller: _name,
-                        decoration: InputDecoration(
-                          labelText: 'Username',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Masukan Username';
-                          }
-                          return null;
-                        },
+    return Padding(
+      padding: const EdgeInsets.all(30),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Container(
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    controller: _username,
+                    decoration: InputDecoration(
+                      labelText: 'Username',
+                      labelStyle: TextStyle(fontSize: 16),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      TextFormField(
-                        controller: _password,
-                        decoration: InputDecoration(
-                          labelText: 'Password',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Masukan Password';
-                          }
-                          return null;
-                        },
-                        onSaved: (value) {},
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    final isValidForm = _formKey.currentState!.validate();
-                    String username = _name.text;
-                    String password = _password.text;
-                    if (isValidForm) {
-                      logindata.setBool('Login', false);
-                      logindata.setString('username', username);
-                      showDialog(
-                        context: context,
-                        builder: (_) => AlertDialog(
-                          title: const Text('Login Success'),
-                          content: Text('Welcome, $username'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                                Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => const ContactScreen()),
-                                  (route) => false,
-                                );
-                              },
-                              child: const Text('Ok'),
-                            ),
-                          ],
-                        ),
-                      );
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
                     ),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 50),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Masukan Username';
+                      }
+                      return null;
+                    },
                   ),
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    controller: _password,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: TextStyle(fontSize: 16),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Masukan Password';
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {},
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
+            const SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                final isValidForm = _formKey.currentState!.validate();
+                String username = _username.text;
+                String password = _password.text;
+                if (isValidForm) {
+                  logindata.setBool('Login', false);
+                  logindata.setString('username', username);
+                  showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      title: const Text('Login Success'),
+                      content: Text('Welcome, $username'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const ContactScreen()),
+                              (route) => false,
+                            );
+                          },
+                          child: const Text('Ok'),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue[800],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+              ),
+              child: const Text(
+                "Login",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
